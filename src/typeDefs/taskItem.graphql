@@ -1,8 +1,0 @@
-type TaskItem {
-  _id: ID
-  comment: String
-  idTask: ID
-  startAt: Float
-  endAt: Float
-  spent: Float
-}

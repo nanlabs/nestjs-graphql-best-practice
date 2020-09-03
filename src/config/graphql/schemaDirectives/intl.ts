@@ -1,7 +1,7 @@
 import { SchemaDirectiveVisitor } from 'graphql-tools'
 import { defaultFieldResolver } from 'graphql'
 
-import { translate } from '../../../shared'
+// import { translate } from '../../../shared'
 
 class IntlDirective extends SchemaDirectiveVisitor {
 	visitFieldDefinition(field, details) {

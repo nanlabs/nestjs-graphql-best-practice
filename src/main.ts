@@ -22,7 +22,7 @@ import {
 	// logger
 } from '@common'
 import { timeout, interval, cron } from '@shared'
-import { EmailResolver } from './resolvers/email.resolver'
+// import { EmailResolver } from './resolvers/email.resolver'
 import '@validations'
 
 import {
@@ -123,19 +123,19 @@ async function bootstrap() {
 		// 	.select(EmailModule)
 		// 	.get(EmailResolver, { strict: true })
 
-		const emailResolver = app.get(EmailResolver)
-
-		// NOTE: mail tracking
-		app.use(`/${END_POINT}/:id`, (req, res, next) => {
-			const { id } = req.params
-			// console.log(req)
-
-			if (id) {
-				emailResolver.openEmail(id)
-			}
-
-			next()
-		})
+		// const emailResolver = app.get(EmailResolver)
+		//
+		//// NOTE: mail tracking
+		// app.use(`/${END_POINT}/:id`, (req, res, next) => {
+		// 	const { id } = req.params
+		// 	// console.log(req)
+		//
+		// 	if (id) {
+		// 		emailResolver.openEmail(id)
+		// 	}
+		//
+		// 	next()
+		// })
 
 		// NOTE: size limit
 		app.use('*', (req, res, next) => {

@@ -38,8 +38,8 @@ import * as Resolvers from './resolvers'
 	],
 	controllers: [AppController],
 	providers: [
-		DateScalar,
-		UploadScalar,
+		// DateScalar,
+		// UploadScalar,
 		...Object.values(Resolvers),
 		AppService
 		// AppProcessor

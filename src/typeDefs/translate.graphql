@@ -1,3 +1,0 @@
-type Mutation {
-	translate(text: String!, code: String!): String
-}

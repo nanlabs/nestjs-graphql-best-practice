@@ -10,14 +10,14 @@ import * as depthLimit from 'graphql-depth-limit'
 // import { fileLoader, mergeTypes } from 'merge-graphql-schemas'
 // import { buildFederatedSchema } from '@apollo/federation'
 // import { ApolloGateway } from '@apollo/gateway'
-import { getMongoRepository } from 'typeorm'
+// import { getMongoRepository } from 'typeorm'
 import chalk from 'chalk'
 // import responseCachePlugin from 'apollo-server-plugin-response-cache'
 
 import schemaDirectives from './schemaDirectives'
 import directiveResolvers from './directiveResolvers'
-import { verifyToken } from '@auth'
-import { User } from '@models'
+// import { verifyToken } from '@auth'
+// import { User } from '@models'
 // import { logger } from '../../common'
 
 import {
@@ -78,8 +78,8 @@ export class GraphqlService implements GqlOptionsFactory {
 			// ]),
 			typePaths: ['./**/*.graphql'],
 			resolvers: {
-				JSON: GraphQLJSON,
-				JSONObject: GraphQLJSONObject
+				// JSON: GraphQLJSON,
+				// JSONObject: GraphQLJSONObject
 			},
 			extensions: [() => new MyErrorTrackingExtension()],
 			mocks: NODE_ENV === 'testing' && {
@@ -170,15 +170,15 @@ export class GraphqlService implements GqlOptionsFactory {
 					}
 				}
 
-				let currentUser
-
+				let currentUser = {}
+				currentUser = {}
 				// console.log(ACCESS_TOKEN, req.headers)
 
 				const token = req.headers[ACCESS_TOKEN!] || ''
 
 				// console.log('token', token)
 				if (token) {
-					currentUser = await verifyToken(token, 'accessToken')
+					// currentUser = await verifyToken(token, 'accessToken')
 				}
 
 				console.log(currentUser)
@@ -224,22 +224,22 @@ export class GraphqlService implements GqlOptionsFactory {
 					NODE_ENV !== 'production' &&
 						Logger.debug(`🔗  Connected to websocket`, 'GraphQL')
 
-					let currentUser
-
+					let currentUser = {}
+					currentUser = {}
 					const token = connectionParams[ACCESS_TOKEN!]
 
 					if (token) {
-						currentUser = await verifyToken(token, 'accessToken')
+						// currentUser = await verifyToken(token, 'accessToken')
 
-						await getMongoRepository(User).updateOne(
-							{ _id: currentUser._id },
-							{
-								$set: { isOnline: true }
-							},
-							{
-								upsert: true
-							}
-						)
+						// await getMongoRepository(User).updateOne(
+						// 	{ _id: currentUser._id },
+						// 	{
+						// 		$set: { isOnline: true }
+						// 	},
+						// 	{
+						// 		upsert: true
+						// 	}
+						// )
 
 						return { currentUser }
 					}
@@ -255,15 +255,15 @@ export class GraphqlService implements GqlOptionsFactory {
 					const { initPromise } = context
 					const { currentUser } = await initPromise
 
-					await getMongoRepository(User).updateOne(
-						{ _id: currentUser._id },
-						{
-							$set: { isOnline: false }
-						},
-						{
-							upsert: true
-						}
-					)
+					// await getMongoRepository(User).updateOne(
+					// 	{ _id: currentUser._id },
+					// 	{
+					// 		$set: { isOnline: false }
+					// 	},
+					// 	{
+					// 		upsert: true
+					// 	}
+					// )
 				}
 			},
 			persistedQueries: {
