@@ -56,17 +56,6 @@ const RESETPASS_TOKEN_SECRET: string =
 // bcrypt
 const BCRYPT_SALT: number = +process.env.BCRYPT_SALT || 10
 
-// nodemailer
-const NODEMAILER_USER: string = process.env.NODEMAILER_USER || 'xxx'
-const NODEMAILER_PASS: string = process.env.NODEMAILER_PASS || 'xxx'
-
-// cloudinary
-const CLOUDINARY_NAME: string = process.env.CLOUDINARY_NAME || 'chnirt'
-const CLOUDINARY_API_KEY: string =
-	process.env.CLOUDINARY_API_KEY || '475584948229723'
-const CLOUDINARY_API_SECRET: string =
-	process.env.CLOUDINARY_API_SECRET || 'Duno2be58mE2lCFLcuOssGKG54c'
-
 // pubsub
 const NOTIFICATION_SUBSCRIPTION: string = 'newNotification'
 const USER_SUBSCRIPTION: string = 'newUser'
@@ -124,11 +113,6 @@ export {
 	EMAIL_TOKEN,
 	EMAIL_TOKEN_SECRET,
 	BCRYPT_SALT,
-	NODEMAILER_USER,
-	NODEMAILER_PASS,
-	CLOUDINARY_NAME,
-	CLOUDINARY_API_KEY,
-	CLOUDINARY_API_SECRET,
 	USER_SUBSCRIPTION,
 	NOTIFICATION_SUBSCRIPTION,
 	MESSAGES_SUBSCRIPTION,

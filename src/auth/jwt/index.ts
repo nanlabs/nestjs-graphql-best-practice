@@ -3,7 +3,7 @@ import { sign, verify } from 'jsonwebtoken'
 import { AuthenticationError, ForbiddenError } from 'apollo-server-core'
 
 // import { User } from '@models'
-import { LoginResponse } from '../../generator/graphql.schema'
+// import { LoginResponse } from '../../generator/graphql.schema'
 
 import {
 	ISSUER,
