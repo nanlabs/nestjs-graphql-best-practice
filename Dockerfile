@@ -14,10 +14,10 @@ COPY package*.json ./
 RUN npm install typescript
 RUN npm install -g ts-node
 RUN npm install --only=production
-RUN npm build
 
 # Copy local code to the container image.
 COPY . .
+RUN npm build
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
