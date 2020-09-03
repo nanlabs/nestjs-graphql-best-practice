@@ -11,12 +11,11 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install production dependencies.
-RUN npm install typescript
-RUN npm install -g ts-node
-RUN npm install --only=production
+RUN npm install
 
 # Copy local code to the container image.
 COPY . .
+RUN npm run gen
 RUN npm build
 
 # Service must listen to $PORT environment variable.
