@@ -40,6 +40,8 @@ import { getConnection } from 'typeorm'
 declare const module: any
 
 async function bootstrap() {
+	Logger.log('App starting', 'TypeORM', false)
+	Logger.log(process.env, 'TypeORM', false)
 	try {
 		const app = await NestFactory.create<NestExpressApplication>(AppModule, {
 			// httpsOptions: {
